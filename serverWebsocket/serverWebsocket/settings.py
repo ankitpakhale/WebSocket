@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'serverapp',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -69,6 +70,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'serverWebsocket.wsgi.application'
+ASGI_APPLICATION = 'serverWebsocket.asgi.application'
 
 
 # Database
