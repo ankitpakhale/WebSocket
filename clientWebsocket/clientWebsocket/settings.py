@@ -55,7 +55,7 @@ ROOT_URLCONF = 'clientWebsocket.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['/home/user5/Documents/ank10/WebSocket/projectWebsocket/clientWebsocket/clientapp/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
