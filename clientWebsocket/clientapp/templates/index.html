@@ -17,5 +17,25 @@
         <input type="text" placeholder="Type your message here" name="msg">
         <input type="submit" value="submit" name="sub">
     </form>
+
+    {{message}}
+
+
+    <!-- <script type="text/javascript">
+        console.log('connection  change succesfully ');
+        var c;
+        c = '{{c}}'
+        if ( c == 'connect') {
+            var element = document.getElementById('email').textContent;
+            const roomName = element;
+            var email= roomName
+            // const connection = new WebSocket('ws://'+'127.0.0.1:8000'+ '/'+'127.0.0.1:8010'+'ws/');
+            const connection = new WebSocket('ws://localhost:8000/');
+            console.log(window.location.host);
+            console.log('connection succesfully ');
+        }
+    </script> -->
+
+
 </body>
 </html>

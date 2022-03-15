@@ -3,9 +3,12 @@ from channels.generic.websocket import WebsocketConsumer
 class ChatConsumer(WebsocketConsumer):
     def connect(self):
         self.accept()
-        self.send(self,'message come from server')
+        message = 'Message from sever side'
+        self.send(json.dumps({'message': message}))
+
     def disconnect(self, close_code):
         pass
+
     def receive(self, text_data):
         text_data_json = json.loads(text_data)
         message = text_data_json['message']
