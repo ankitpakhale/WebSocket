@@ -64,10 +64,9 @@ def Login(self):
     return render(self,'login.html')
 
 def Index(self):
-
-    return render(self, 'index.html')
-
-
+    if 'email' in self.session:
+        return render(self, 'index.html')
+    return redirect('LOGIN')
 
 def ClientLogOut(self):
     del self.session['email']
