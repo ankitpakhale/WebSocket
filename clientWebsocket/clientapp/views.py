@@ -65,6 +65,5 @@ def Login(self):
             return HttpResponse('Invalid Email ID')
     return render(self,'login.html')
 
-
 def Index(self):
-    return HttpResponse('On Index View')
+    return render(self, 'index.html')
