@@ -52,8 +52,7 @@ def Login(self):
             if check.password == pass1:
                 # print(check.Password)
                 self.session['email'] = check.email
-                return HttpResponse('Signed up successfully')
-                # return redirect('CADASHBOARD')
+                return redirect('INDEX')
 
                 # nameMsg = CasignUp.objects.get(email = em)
                 # msg = 'User Successfully logged in'
@@ -67,5 +66,5 @@ def Login(self):
     return render(self,'login.html')
 
 
-
-
+def Index(self):
+    return HttpResponse('On Index View')
