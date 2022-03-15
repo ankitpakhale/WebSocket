@@ -167,6 +167,22 @@
                     <input class="submit" type="submit" value="Login">
                 </div>
             </div>
+
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <a>Not a User?<br></a>
+                    <h5>
+                        <a href="{% url 'SIGNUP' %}" style="font-size: 19px; color: #01B3E4;"
+                            onMouseOver="this.style.color='#033B4A'" onMouseOut="this.style.color='#01B3E4'">Go for
+                            Signup</a>
+                    </h5>
+                </div>
+
+                <!-- This is for Error Message -->
+                <h3 style="color: #ff0000;">{{msg}}</h3>
+
+            </div>
+
         </form>
 
     </div>
