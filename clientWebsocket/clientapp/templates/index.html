@@ -7,6 +7,12 @@
     <title>Clientside Formula</title>
 </head>
 <body>
+    
+    <div class="logout">
+        <a href="{% url 'LOGOUT' %}">Logout</a>
+    </div>
+
+
     <form method="POST">
         {% csrf_token %}
         <input type="text" placeholder="Type your message here" name="msg">

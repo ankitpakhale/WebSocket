@@ -46,14 +46,12 @@ def Login(self):
         em = self.POST.get('email')
         pass1 = self.POST.get('password')
         try:
-            print("Inside first try block")
             check = clientuser.objects.get(email = em)
             print("Email is ",em,check.email)
             if check.password == pass1:
                 # print(check.Password)
                 self.session['email'] = check.email
                 return redirect('INDEX')
-
                 # nameMsg = CasignUp.objects.get(email = em)
                 # msg = 'User Successfully logged in'
                 # print(msg)
@@ -66,4 +64,12 @@ def Login(self):
     return render(self,'login.html')
 
 def Index(self):
+
     return render(self, 'index.html')
+
+
+
+def ClientLogOut(self):
+    del self.session['email']
+    print('User logged out')
+    return redirect('LOGIN')
