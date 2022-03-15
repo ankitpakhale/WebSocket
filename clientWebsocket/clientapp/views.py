@@ -4,3 +4,10 @@ from django.http import HttpResponse
 
 def CTest(request):
     return HttpResponse("on clientWebsocket")
+
+def Signup(request):
+    return HttpResponse("on Signup view")
+
+def Login(request):
+    return HttpResponse("on Login View")
+
