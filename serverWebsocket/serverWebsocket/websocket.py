@@ -16,3 +16,10 @@ async def websocket_applciation(scope, receive, send):
                     'type': 'websocket.send',
                     'text': 'pong!'
                 })
+
+            if event['text'] == 'Hii':
+                await send({
+                    'type': 'websocket.send',
+                    'text': 'Hello'
+                })
+
