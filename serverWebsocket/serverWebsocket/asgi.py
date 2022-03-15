@@ -7,10 +7,33 @@ For more information on this file, see
 https://docs.djangoproject.com/en/4.0/howto/deployment/asgi/
 """
 
+
+# old code start
+
+# import os
+# from django.core.asgi import get_asgi_application
+# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'serverWebsocket.settings')
+# application = get_asgi_application()
+
+# old code end
+
+
+# new code start
 import os
-
 from django.core.asgi import get_asgi_application
-
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'serverWebsocket.settings')
+django_application = get_asgi_application()
 
-application = get_asgi_application()
+async def application(scope, receive, send):
+    if scope['type'] == 'http':
+        # Let Django handle HTTP requests
+        await django_application(scope, receive, send)
+    elif scope['type'] == 'websocket':
+        # We'll handle Websocket connections here
+        pass
+    else:
+        raise NotImplementedError(f"Unknown scope type {scope['type']}")
+
+# new code end
+
+
