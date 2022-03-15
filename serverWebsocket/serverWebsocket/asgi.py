@@ -21,6 +21,9 @@ https://docs.djangoproject.com/en/4.0/howto/deployment/asgi/
 # new code start
 import os
 from django.core.asgi import get_asgi_application
+from websocket_app.websocket import websocket_application
+
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'serverWebsocket.settings')
 django_application = get_asgi_application()
 
@@ -30,7 +33,7 @@ async def application(scope, receive, send):
         await django_application(scope, receive, send)
     elif scope['type'] == 'websocket':
         # We'll handle Websocket connections here
-        pass
+        await websocket_application(scope, receive, send)
     else:
         raise NotImplementedError(f"Unknown scope type {scope['type']}")
 
