@@ -1,9 +1,11 @@
 import json
 from channels.generic.websocket import WebsocketConsumer
+
+
 class ChatConsumer(WebsocketConsumer):
     def connect(self):
         self.accept()
-        message = 'Message from sever side'
+        message = "Hii I'm server"
         self.send(json.dumps({'message': message}))
 
     def disconnect(self, close_code):
@@ -18,5 +20,6 @@ class ChatConsumer(WebsocketConsumer):
         # self.send(text_data=json.dumps({
         #     'message': message
         # }))
+        
     # def send(self, text_data=None, bytes_data=None, close=False):
     #     return super().send(text_data, bytes_data, close)()
