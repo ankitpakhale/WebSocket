@@ -44,16 +44,24 @@ def Login(self):
         if check.password == pass1:
             self.session['email'] = check.email
             c = 'connect'
-            # return redirect('INDEX')
+            return redirect('INDEX')
         else:
             return HttpResponse('Invalid Password')
     return render(self,'login.html', {'c' : c})
 
-
 def Index(self):
-    if 'email' in self.session:
-        return render(self, 'index.html')
-    return redirect('LOGIN')
+    # if 'email' in self.session:
+        # print("Inside index")
+
+        q = clientuser.objects.filter(email = self.session['email'])
+        if q:
+            c = 'connect'
+        else:
+            return HttpResponse('Invalid Password')
+
+        return render(self,'index.html', {'c' : c})
+
+    # return redirect('LOGIN')
 
 def ClientLogOut(self):
     del self.session['email']

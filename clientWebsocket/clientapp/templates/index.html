@@ -21,21 +21,42 @@
     {{message}}
 
 
-    <!-- <script type="text/javascript">
-        console.log('connection  change succesfully ');
+
+
+<!-- ---------------------web socket code start---------------------- -->
+    {% if c %}
+    <p><a href="{% url 'INDEX' %}">Index</a>
+    {% endif %}
+    {{c}}    
+
+    <script type="text/javascript">
         var c;
         c = '{{c}}'
         if ( c == 'connect') {
-            var element = document.getElementById('email').textContent;
-            const roomName = element;
-            var email= roomName
+            // var element = document.getElementById('email').textContent;
+            // const roomName = element;
+            // var email= roomName
             // const connection = new WebSocket('ws://'+'127.0.0.1:8000'+ '/'+'127.0.0.1:8010'+'ws/');
-            const connection = new WebSocket('ws://localhost:8000/');
-            console.log(window.location.host);
-            console.log('connection succesfully ');
-        }
-    </script> -->
 
+            const connection = new WebSocket('ws://localhost:8000/');
+            // this will print the localhost port number
+            console.log(window.location.host);
+            // success message
+            console.log('connection succesfully');            
+            connection.onmessage = function(event){
+
+                console.log(event)
+
+                // console.log(event.data)
+                
+                // this will get data, that is comming from server side "Hii I'm server"
+                console.log(JSON.parse(event.data)); 
+                const msg1 = "Hii Server, this is client";                    
+                connection.send(JSON.stringify(msg1))
+            }
+        }
+    </script>
+<!-- ---------------------web socket code end---------------------- -->
 
 </body>
 </html>
