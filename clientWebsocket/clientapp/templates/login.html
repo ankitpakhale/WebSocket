@@ -206,7 +206,10 @@
                 
                 connection.onmessage = function(event) {
                     console.log(JSON.parse(event.data));
-                    // connection.send(JSON.parse("This is from client side"));
+
+                    const msg1 = "This msg is from Client side";
+                    
+                    connection.send(JSON.stringify(msg1))
                 }
             }
         </script>
