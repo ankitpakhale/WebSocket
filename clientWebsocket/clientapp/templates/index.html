@@ -14,18 +14,13 @@
 
     <form method="POST">
         {% csrf_token %}
-        <input type="text" placeholder="Type your message here" name="msg">
+        <input type="text" placeholder="Type your message here" name="msg" id="myText" value="asdnkfe">
         <input type="submit" value="submit" name="sub">
     </form>
 
-    {{message}}
-
-
-
-
 <!-- ---------------------web socket code start---------------------- -->
     {% if c %}
-    <p><a href="{% url 'INDEX' %}">Index</a>
+    <a href="{% url 'INDEX' %}">Index</a>
     {% endif %}
     {{c}}    
 
@@ -42,16 +37,16 @@
             // this will print the localhost port number
             console.log(window.location.host);
             // success message
-            console.log('connection succesfully');            
+            console.log('connection succesfully');
+
             connection.onmessage = function(event){
-
-                console.log(event)
-
+                // console.log(event)
                 // console.log(event.data)
-                
                 // this will get data, that is comming from server side "Hii I'm server"
-                console.log(JSON.parse(event.data)); 
-                const msg1 = "Hii Server, this is client";                    
+                console.log(JSON.parse(event.data));
+                // const msg1 = "Hii Server, this is client";   
+                var msg1 = document.getElementById("myText").value;
+                console.log(msg1)
                 connection.send(JSON.stringify(msg1))
             }
         }
